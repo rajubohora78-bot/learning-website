@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  rel="stylesheet"
+/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  
+    
+  <style>
+
+
+
+  </style>
+</head>
+<body class="bg-blue-50">
+
+ 
+  <!-- Main form container -->
+  <header class="sticky top-0 z-10 bg-[#2C5282] flex items-center justify-between px-2 py-1 h-16 shadow-[0_0_10px_rgba(255,255,255,0.3)] rounded-md">
+  <div class="flex items-center space-x-2">
+    <div class="h-2 w-2 bg-gray-300 rounded-full"></div>
+    <span class="text-lg font-semibold text-white">Logo</span>
+  </div>
+
+  <!-- Desktop Menu -->
+  <nav class="hidden md:flex space-x-1">
+    <a href="index.html" class="text-white hover:text-blue-400 transition">Home</a>
+    <a href="#" class="text-white hover:text-blue-400 transition">About</a>
+    <a href="#" class="text-white hover:text-blue-400 transition">Contact</a>
+  </nav>
+
+  <!-- Mobile Hamburger -->
+  <button id="mobile-menu-button" class="md:hidden flex flex-col justify-between w-2 h-2">
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#2C5282] flex flex-col space-y-2 px-3 py-2">
+  <a href="index.html" class="text-white hover:text-blue-400 transition">Home</a>
+  <a href="#" class="text-white hover:text-blue-400 transition">About</a>
+  <a href="#" class="text-white hover:text-blue-400 transition">Contact</a>
+</div>
+</div></div>
+
+
+
+<!-- SIMPLE EXPANDING CARD GRID — full-card click + animated small top title -->
+<style>
+  :root {
+    --card-h: 220px;
+    --card-radius: 12px;
+    --gap: 18px;
+    --subject-w: 220px;
+    --accent: #1A4D8F;
+  }
+
+  .board {
+    max-width: 1100px;
+    margin: 22px auto;
+    padding: 18px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    font-family: system-ui,Segoe UI,Roboto,Arial;
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+  }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }    /* mobile: 1 column */
+  }
+
+  .card {
+    background: linear-gradient(180deg,#2b6cb0,#2874b6);
+    color: white;
+    border-radius: var(--card-radius);
+    min-height: var(--card-h);
+    overflow: visible;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform .14s ease, box-shadow .14s ease;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,0.12); }
+
+  /* Header container (used for centered title initially) */
+  .card-header {
+    padding: 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height: var(--card-h); /* ensure it centers vertically while closed */
+    box-sizing: border-box;
+    transition: padding .28s ease;
+  }
+
+  /* Title element — big centered initially */
+  .title {
+    margin:0;
+    font-size:34px;            /* big */
+    font-weight:800;
+    line-height:1;
+    transition: font-size .28s ease, transform .28s ease, top .28s ease, left .28s ease;
+  }
+
+  .subtitle {
+    margin:8px 0 0 0;
+    font-size:13px;
+    opacity:.95;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  /* collapsed body */
+  .card-body {
+    overflow: hidden;
+    max-height: 0;                /* collapsed by default */
+    transition: max-height .45s cubic-bezier(.2,.9,.25,1), padding .28s ease;
+    padding: 0 18px;              /* left/right padding kept, top/bottom animated */
+    box-sizing: border-box;
+  }
+  .card.open .card-body {
+    padding: 12px 18px 18px 18px; /* expanded padding */
+  }
+
+  /* subjects */
+  .subjects {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+  }
+
+  .subject {
+    display:block;
+    width: var(--subject-w);
+    text-align:center;
+    padding:10px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    background: var(--accent);
+    font-weight:600;
+    box-shadow: 0 8px 18px rgba(11,48,91,0.12);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform .32s cubic-bezier(.2,.9,.25,1), opacity .26s ease, background .16s ease;
+  }
+
+  .card.open .subject {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .subject:hover { background:#16a34a; transform: translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,0.12); }
+  .subject:active { transform: scale(.99); }
+
+  /* When open, move the title to top-left and make it small */
+  .card.open .card-header {
+    padding: 10px 18px; /* reduce header height when open */
+    min-height: auto;
+    align-items: flex-start;
+    justify-content:flex-start;
+  }
+
+  .card .title {
+    /* default centered look uses the header's flex layout */
+    transform: translateY(0);
+  }
+
+  .card.open .title {
+    position: absolute;     /* take out of normal flow */
+    top: 10px;
+    left: 14px;
+    font-size:12px;         /* small top-corner title */
+    font-weight:700;
+    color: rgba(255,255,255,0.95);
+    transform: none;
+  }
+
+  /* move subtitle out of the way when open (fade/slide) */
+  .card.open .subtitle { opacity: 0; transform: translateY(-6px); }
+
+  /* responsive subject width */
+  @media (max-width:520px) { :root { --subject-w: 100%; } .subject { width:100%; } }
+</style>
+
+<div class="board">
+  <h3 style="margin:0 0 14px 0">Classes</h3>
+
+  <div class="grid" id="classesGrid">
+    <!-- Card 1 (copy/paste and change data-idx and subject lists for other cards) -->
+    <div class="card" data-idx="0" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Grade 1</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade1-math.html" target="_self" rel="noopener">Mathematics</a>
+          <a class="subject" href="grade1-science.html" target="_self" rel="noopener">Science</a>
+          <a class="subject" href="grade1-english.html" target="_self" rel="noopener">English</a>
+          <a class="subject" href="grade1-nepali.html" target="_self" rel="noopener">Nepali</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" data-idx="1" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 2</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade2-math.html">Mathematics</a>
+          <a class="subject" href="grade2-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" data-idx="3" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 3</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- add more cards (up to 12) by copying one of the above and changing names/links -->
+
+
+
+       <!-- Card 4 -->
+    <div class="card" data-idx="4" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 4</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+       <!-- Card 5 -->
+    <div class="card" data-idx="5" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 5</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 6 -->
+    <div class="card" data-idx="6" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 6</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+       <!-- Card 7 -->
+    <div class="card" data-idx="7" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 7</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 8 -->
+    <div class="card" data-idx="8" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 8</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 9 -->
+    <div class="card" data-idx="9" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class  9</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 10 -->
+    <div class="card" data-idx="10" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 10</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 11 -->
+    <div class="card" data-idx="11" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 11</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+
+       <!-- Card 12 -->
+    <div class="card" data-idx="12" tabindex="0" role="button" aria-expanded="false">
+      <div class="card-header">
+        <h4 class="title">Class 12</h4>
+        <div class="subtitle">Complete study materials</div>
+      </div>
+      <div class="card-body" aria-hidden="true">
+        <div class="subjects">
+          <a class="subject" href="grade3-math.html">Mathematics</a>
+          <a class="subject" href="grade3-science.html">Science</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+  // Make entire card clickable (but let subject links behave normally).
+  // When opening, the card's title moves to top-left (handled by CSS .card.open .title)
+  document.querySelectorAll('.card').forEach(card => {
+    const body = card.querySelector('.card-body');
+
+    // open/close functions using measured heights for smooth animation
+    function open() {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+      body.setAttribute('aria-hidden', 'false');
+      const height = body.scrollHeight;
+      body.style.maxHeight = height + 'px';
+      // tidy after transition so height can adjust if inner content changes
+      const tidy = () => { body.style.maxHeight = 'none'; body.removeEventListener('transitionend', tidy); };
+      body.addEventListener('transitionend', tidy);
+    }
+
+    function close() {
+      // to animate from the current height (possibly 'none'), set measured height first
+      body.style.maxHeight = body.scrollHeight + 'px';
+      // force reflow
+      body.getBoundingClientRect();
+      body.style.maxHeight = '0';
+      card.classList.remove('open');
+      card.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+    }
+
+    function toggle() { if (card.classList.contains('open')) close(); else open(); }
+
+    // Click on card toggles — but if the click target is a subject link, let the link handle navigation
+    card.addEventListener('click', (e)=>{
+      if (e.target.closest('.subject')) return; // clicking a subject should not toggle, it should navigate
+      // if user clicked a focused element inside (like a link inside), do nothing
+      toggle();
+    });
+
+    // Keyboard accessibility: open/close on Enter or Space (but not when focusing a link)
+    card.addEventListener('keydown', (e)=>{
+      const tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+      if(tag === 'a' || tag === 'button' || tag === 'input' || tag === 'textarea') return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+</script>
+
+
+
+
+
+     
+
+        </div>
+</body>
+        <!-- Content for this container goes here -->
+         </div>
+      <div class="bg-[#2C5282] p-4 rounded flex flex-col items-center text-center relative">
+
+  <!-- Text Content -->
+  <h2 class="text-white text-2xl font-semibold mb-2">SEE Ko Guide</h2>
+
+  <p class="text-white mb-1">
+    We provide educational materials for class nine and ten students. Our motto is to educate everyone using the power of technology.
+  </p>
+
+  <p class="text-white font-medium">
+     Our contents are valuable to students.
+  </p>
+
+  <!-- White line below the box -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-white"></div>
+
+
+
+
+
+</div>
+
+   <div class="bg-[#2C5282] p-4 rounded- flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
+  
+  <!-- Copyright -->
+  <p class="text-white text-center sm:text-left text-sm sm:text-base">
+    Copyright @ 2025  itsraju
+  </p>
+  
+  <!-- Footer Links -->
+  <div class="footer-links flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-4 text-xs sm:text-sm">
+    <a href="404.html" class="text-white hover:underline">Terms and Conditions</a>
+    <a href="404.html" class="text-white hover:underline">Privacy Policy</a>
+    <a href="404.html" class="text-white hover:underline">About Us</a>
+    <a href="404.html" class="text-white hover:underline">Our Team</a>
+    <a href="404.html" class="text-white hover:underline">Contact</a>
+  </div>
+
+</div>
+
+    </div>
+</div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

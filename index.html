@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  rel="stylesheet"
+/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  
+    
+  <style>
+
+
+
+  </style>
+</head>
+<body class="bg-blue-50">
+
+ 
+  <!-- Main form container -->
+  <header class="sticky top-0 z-10 bg-[#2C5282] flex items-center justify-between px-2 py-1 h-16 shadow-[0_0_10px_rgba(255,255,255,0.3)] rounded-md">
+  <div class="flex items-center space-x-2">
+    <div class="h-2 w-2 bg-gray-300 rounded-full"></div>
+    <span class="text-lg font-semibold text-white">Logo</span>
+  </div>
+
+  <!-- Desktop Menu -->
+  <nav class="hidden md:flex space-x-1">
+    <a href="#" class="text-white hover:text-blue-400 transition">Home</a>
+    <a href="#" class="text-white hover:text-blue-400 transition">About</a>
+    <a href="#" class="text-white hover:text-blue-400 transition">Contact</a>
+  </nav>
+
+  <!-- Mobile Hamburger -->
+  <button id="mobile-menu-button" class="md:hidden flex flex-col justify-between w-2 h-2">
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+    <span class="block h-0.5 w-full bg-white transition-all"></span>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#2C5282] flex flex-col space-y-2 px-3 py-2">
+  <a href="#" class="text-white hover:text-blue-400 transition">Home</a>
+  <a href="#" class="text-white hover:text-blue-400 transition">About</a>
+  <a href="#" class="text-white hover:text-blue-400 transition">Contact</a>
+</div>
+
+
+   
+     
+       
+        <div class=" p-0 rounded-xl overflow-hidden sm:w-full sm:h-screen ">
+       <div class="carousel sm:w-full sm:h-full">
+    <
+    
+  <!-- IMAGE SLIDER (Carousel) START -->
+        
+
+      <div class="list">
+
+        <div class="item sm:w-full sm:h-full object-contain" style=" background-image: url(image/crow.png);">
+          <div class="content">
+            <div class="title">Read </div>
+            <div class="name">Think </div>
+            <div class="des">This peaceful study moment reminds us how a simple habit—like reading every day—can build focus, knowledge, and confidence.</div>
+            <div class="btn">
+              <!--
+              <button>See More</button>
+              <button>Subscribe</button>      -->
+            </div>
+          </div>
+        </div>
+
+        <div class="item  item sm:w-full sm:h-full object-contain " style="background-image: url(image/notes2.png);">
+          <div class="content">
+            <div class="title">Organized Shelf,</div>
+            <div class="name">Clear Mind</div>
+            <div class="des">When everything is in its place, learning becomes easier and faster. A clean shelf, a ready notebook, and a quiet space help us focus better.</div>
+            <div class="btn">
+              <!--
+              <button>See More</button>
+              <button>Subscribe</button>      -->
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(image/memory.png);">
+          <div class="content">
+            <div class="title">Focus</div>
+            <div class="name">Concentration</div>
+            <div class="des"> It boosts focus, strengthens memory, and trains your mind to absorb and recall information—just like a workout for your brain. Keep reading, keep growing.</div>
+            <div class="btn">
+              <!--<button>See More</button>
+              <button>Subscribe</button>    -->
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url(image/butterfly1.png);">
+          <div class="content">
+            <div class="title">Butterfly</div>
+            <div class="name"></div>
+            <div class="des">Make goals and imagine to fly in a beautiful sky like butterfly.</div>
+            <div class="btn">
+              <!--<button>See More</button>
+              <button>Subscribe</button>    -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Add remaining items here like in your code (OWL, EAGLE, KINGFISHER, etc.) -->
+
+      </div>
+
+      <!-- Next/Prev Buttons -->
+      <div class="arrows">
+        <button class="prev"><</button>
+        <button class="next">></button>
+      </div>
+
+      <!-- Time Progress Bar -->
+      <div class="timeRunning"></div>
+
+    </div>
+  <!-- IMAGE SLIDER (Carousel) END -->
+
+  <!-- Attach carousel script -->
+  <script src="app.js"></script>
+</div>
+
+  </div>
+</div
+
+<div class="bg-[#2C5282] h-[1px] mt-[50px] w-full"></div>
+
+<div class="p-0 rounded-xl w-full sm:h-[1px] flex flex-col relative" style="background: linear-gradient(to bottom, #93b0ea 0%, #627bad 95%, #9ca3af 95%, #95b9f6 100%)"></div>      
+      <!-- Container for the middle section with two sub-containers -->
+   
+<div class="bg-[#2C5282] h-[1px] mt-[50px] w-full"></div>
+
+  <!-- Fixed Header -->
+  <div class="flex justify-center items-center h-[60px]">
+    <h2 class="text-xl font-semibold">Service</h2>
+  </div>
+
+  <!-- Grid fills remaining space -->
+  
+ <div class="flex justify-center items-center ">
+  <!-- Grid Container -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-20 p-10">
+    
+    <!-- Book Card -->
+     <!-- Duplicate Book Cards for Grid Demo -->
+    <a  href="book.html" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/book2.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Book</h3>
+      <p class="text-white text-xs mb-1 p-2">All books from CDC </p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ NEB Approved</div>
+    </a>
+
+    <!-- Duplicate Book Cards for Grid Demo -->
+    <a href="curriculum.html" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/book1.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Curriculum</h3>
+      <p class="text-white text-xs mb-1 p-2">All Subjects curriculum</p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ NEB Approved</div>
+    </a>
+
+     <!-- Duplicate Book Cards for Grid Demo -->
+    <a href="#" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/book3.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Visual Explanation</h3>
+      <p class="text-white text-xs mb-1 p-2">Learn easily from visual content</p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ Interesting </div>
+    </a>
+
+     <!-- Duplicate Book Cards for Grid Demo -->
+    <a href="chapter.html" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/Asset 1.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Chapter-wise solution</h3>
+      <p class="text-white text-xs mb-1 p-2">Complete solutions of book</p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ </div>
+    </a>
+
+     <!-- Duplicate Book Cards for Grid Demo -->
+    <a href="notes" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/book5.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Notes</h3>
+      <p class="text-white text-xs mb-1 p-2">All notes by NEB students and teachers</p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ Genuine</div>
+    </a>
+
+
+     <!-- Duplicate Book Cards for Grid Demo -->
+    <a href="#" class="group flex flex-col items-center justify-center 
+              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
+              transform transition duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="w-21 h-21 mb-1">
+        <img src="image/other.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
+      </div>
+      <h3 class="text-white font-semibold text-sm mb-1 p-3">Other content</h3>
+      <p class="text-white text-xs mb-1 p-2">Boost your mind</p>
+      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ </div>
+    </a>
+
+            
+
+      </div>    
+</div>
+
+      <!-- Single, full-width containers -->
+      <div class="live-updates">
+    <h3><img src="https://s.w.org/images/core/emoji/16.0.1/svg/1f534.svg" alt="🔴"> Live Updates - What's New</h3>
+    <div class="updates-feed">
+      <div class="update-item">
+        <span class="update-time">Coming soon...</span>
+        <p><strong>New:</strong> Coming soon...</p>
+      </div>
+      <div class="update-item">
+        <span class="update-time">Coming soon...</span>
+        <p><strong>Updated:</strong> Coming soon...</p>
+      </div>
+      <div class="update-item">
+        <span class="update-time">Coming soon...</span>
+        <p><strong>Added:</strong> Coming soon...</p>
+      </div>
+    </div>
+        <!-- Content for this container goes here -->
+      </div>
+<div style="background-color: #9ec5f2; width: 100%; padding: 1px 0; margin-top: 50px;"></div>
+
+</div>
+<section class="why-choose py-12">
+  <!-- Main Container -->
+  <div class="w-full bg-[#2C5282] p-6 rounded-2xl flex flex-col items-center text-center text-white  margin-top: 40px">
+    
+    <!-- Section Title -->
+    <h2 class="section-title text-3xl font-bold mb-8">
+      What Makes Us Different?
+    </h2>
+
+    <!-- Features Grid -->
+    <div class="features-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+
+      <!-- Feature Box 1 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-layer-group text-4xl mb-4" style="color: #3498db;"></i>
+        <h3 class="text-xl font-semibold mb-2">All Subjects, All Grades</h3>
+        <p>Complete coverage from Grade 8 to Bachelor level across all subjects and streams.</p>
+      </div>
+
+      <!-- Feature Box 2 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-user-check text-4xl mb-4" style="color: #2ecc71;"></i>
+        <h3 class="text-xl font-semibold mb-2">Verified by Toppers &amp; Teachers</h3>
+        <p>All notes are reviewed and verified by subject experts and top-performing students.</p>
+      </div>
+
+      <!-- Feature Box 3 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-file-download text-4xl mb-4" style="color: #e74c3c;"></i>
+        <h3 class="text-xl font-semibold mb-2">Clean, Printable PDF Notes</h3>
+        <p>Well-formatted, easy-to-read PDF notes that you can read anytime.</p>
+      </div>
+
+      <!-- Feature Box 4 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-clock text-4xl mb-4" style="color: #f39c12;"></i>
+        <h3 class="text-xl font-semibold mb-2">Regularly Updated</h3>
+        <p>Content is continuously updated to match the latest NEB and university curriculum.</p>
+      </div>
+
+      <!-- Feature Box 5 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-book-open text-4xl mb-4" style="color: #9b59b6;"></i>
+        <h3 class="text-xl font-semibold mb-2">NEB &amp; SEE Exam Focused</h3>
+        <p>Specifically designed to help you excel in NEB and SEE examinations.</p>
+      </div>
+
+      <!-- Feature Box 6 -->
+      <div class="p-6 rounded-2xl flex flex-col items-center text-center bg-[#2C5282]">
+        <i class="fas fa-globe text-4xl mb-4" style="color: #1abc9c;"></i>
+        <h3 class="text-xl font-semibold mb-2">Available in Nepali &amp; English</h3>
+        <p>Choose from both Nepali and English medium notes based on your preference.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    
+
+<section class="latest-updates py-12">
+  <div class="w-full max-w-6xl mx-auto px-4">
+    
+    <!-- Section Title -->
+    <h2 class="section-title text-3xl font-bold mb-8 text-[#2C5282] text-center">
+      Latest Updates
+    </h2>
+
+    <!-- Updates Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      
+
+      <div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+
+      
+      
+
+
+      <div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+
+
+
+<div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+
+
+
+      <div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+
+<div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+<div class="w-full rounded-2xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
+  <!-- Top 40% Gradient -->
+  <div class="h-32 bg-gradient-to-r from-[#093A8B] to-[#0C4DB8] flex items-center justify-center">
+    <h2 class="text-white text-xl font-bold">Latest Update</h2>
+  </div>
+
+  <!-- Bottom 60% Solid Color -->
+  <div class="p-6 bg-[#F1F4FF] flex flex-col items-center text-center relative">
+    <h3 class="text-lg font-semibold mb-2">File Name</h3>
+    <p class="mb-4">Short description of the update.</p>
+
+    <!-- View Button -->
+    <a href="#" class="mt-auto inline-block px-4 py-2 bg-[#093A8B] text-white font-semibold rounded hover:bg-[#0C4DB8] transition">
+      View
+    </a>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+     
+
+        </div>
+</body>
+        <!-- Content for this container goes here -->
+         </div>
+      <div class="bg-[#2C5282] p-4 rounded flex flex-col items-center text-center relative">
+
+  <!-- Text Content -->
+  <h2 class="text-white text-2xl font-semibold mb-2">SEE Ko Guide</h2>
+
+  <p class="text-white mb-1">
+    We provide educational materials for class nine and ten students. Our motto is to educate everyone using the power of technology.
+  </p>
+
+  <p class="text-white font-medium">
+     Our contents are valuable to students.
+  </p>
+
+  <!-- White line below the box -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-white"></div>
+
+
+
+
+
+</div>
+
+   <div class="bg-[#2C5282] p-4 rounded- flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
+  
+  <!-- Copyright -->
+  <p class="text-white text-center sm:text-left text-sm sm:text-base">
+    Copyright @ 2025  itsraju
+  </p>
+  
+  <!-- Footer Links -->
+  <div class="footer-links flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-4 text-xs sm:text-sm">
+    <a href="404.html" class="text-white hover:underline">Terms and Conditions</a>
+    <a href="404.html" class="text-white hover:underline">Privacy Policy</a>
+    <a href="404.html" class="text-white hover:underline">About Us</a>
+    <a href="404.html" class="text-white hover:underline">Our Team</a>
+    <a href="404.html" class="text-white hover:underline">Contact</a>
+  </div>
+
+</div>
+
+    </div>
+</div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

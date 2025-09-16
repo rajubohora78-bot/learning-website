@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header section */
+header {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+header nav a {
+    color: #fff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+a.active {
+    background: #2F6DAD;
+    border-radius: 2px;
+}
+
+a:hover {
+    background: #2F6DAD;
+    border-radius: 2px;
+}
+
+/* carousel */
+
+.carousel{
+    width: 1082px;
+    height: 720px;
+    margin-top: 2px;
+    
+    object-fit: cover;
+    position: relative;
+    
+}
+.child {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
+.carousel .list .item{
+    width: 1080px;
+    height: 720px;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-70%);
+    left: 50%;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: no repeat;
+    z-index: 80;
+    transition: 1s;
+     
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+     width: 100%; /* Take up 100% of the parent's width */
+    height: 100%; /* Take up 100% of the parent's height */
+     /* Remove negative margin as it's no longer needed */
+    object-fit: cover;
+    
+}
+
+.carousel .list .item:nth-child(3){
+    left: 100%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(100% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(100% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(100% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(100% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    width: 250px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .title{
+    font-size: 80px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+    opacity: 1;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 90%;}
+
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 100px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 100px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+
+
+}
+
+
+
+.shadow-custom:hover {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* subtle, no green */
+}
+
+
+
+
+
+
+
+.live-updates {
+       width: 85%;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px 20px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-family: Arial, sans-serif;
+    }
+
+    .live-updates h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      color: #333;
+    }
+
+    .live-updates h3 img {
+      margin-right: 8px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .updates-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .update-item {
+      padding: 12px;
+      border-left: 4px solid #e74c3c;
+      background: #fafafa;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .update-item:hover {
+      background: #f0f0f0;
+    }
+
+    .update-time {
+      font-size: 13px;
+      color: #888;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .update-item p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .update-item strong {
+      color: #2c3e50;
+
+
+
+
+
+
+    }
+    #mobile-menu-button.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+#mobile-menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+#mobile-menu-button.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+
+
+
+
+@keyframes float404 {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(2px, -2px); }
+  50%  { transform: translate(-2px, 2px); }
+  75%  { transform: translate(2px, 2px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.mn-404-number {
+  animation: float404 3s ease-in-out infinite;
+}
+// Make entire card clickable (but let subject links behave normally).
+  // When opening, the card's title moves to top-left (handled by CSS .card.open .title)
+  document.querySelectorAll('.card').forEach(card => {
+    const body = card.querySelector('.card-body');
+
+    // open/close functions using measured heights for smooth animation
+    function open() {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+      body.setAttribute('aria-hidden', 'false');
+      const height = body.scrollHeight;
+      body.style.maxHeight = height + 'px';
+      // tidy after transition so height can adjust if inner content changes
+      const tidy = () => { body.style.maxHeight = 'none'; body.removeEventListener('transitionend', tidy); };
+      body.addEventListener('transitionend', tidy);
+    }
+
+    function close() {
+      // to animate from the current height (possibly 'none'), set measured height first
+      body.style.maxHeight = body.scrollHeight + 'px';
+      // force reflow
+      body.getBoundingClientRect();
+      body.style.maxHeight = '0';
+      card.classList.remove('open');
+      card.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+    }
+
+    function toggle() { if (card.classList.contains('open')) close(); else open(); }
+
+    // Click on card toggles — but if the click target is a subject link, let the link handle navigation
+    card.addEventListener('click', (e)=>{
+      if (e.target.closest('.subject')) return; // clicking a subject should not toggle, it should navigate
+      // if user clicked a focused element inside (like a link inside), do nothing
+      toggle();
+    });
+
+    // Keyboard accessibility: open/close on Enter or Space (but not when focusing a link)
+    card.addEventListener('keydown', (e)=>{
+      const tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+      if(tag === 'a' || tag === 'button' || tag === 'input' || tag === 'textarea') return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+
+
+  
+
+
+  :root {
+    --card-h: 220px;
+    --card-radius: 12px;
+    --gap: 18px;
+    --subject-w: 220px;
+    --accent: #1A4D8F;
+  }
+
+  .board {
+    max-width: 1100px;
+    margin: 22px auto;
+    padding: 18px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    font-family: system-ui,Segoe UI,Roboto,Arial;
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+  }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }    /* mobile: 1 column */
+  }
+
+  .card {
+    background: linear-gradient(180deg,#2b6cb0,#2874b6);
+    color: white;
+    border-radius: var(--card-radius);
+    min-height: var(--card-h);
+    overflow: visible;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform .14s ease, box-shadow .14s ease;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,0.12); }
+
+  /* Header container (used for centered title initially) */
+  .card-header {
+    padding: 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height: var(--card-h); /* ensure it centers vertically while closed */
+    box-sizing: border-box;
+    transition: padding .28s ease;
+  }
+
+  /* Title element — big centered initially */
+  .title {
+    margin:0;
+    font-size:34px;            /* big */
+    font-weight:800;
+    line-height:1;
+    transition: font-size .28s ease, transform .28s ease, top .28s ease, left .28s ease;
+  }
+
+  .subtitle {
+    margin:8px 0 0 0;
+    font-size:13px;
+    opacity:.95;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+
+  /* collapsed body */
+  .card-body {
+    overflow: hidden;
+    max-height: 0;                /* collapsed by default */
+    transition: max-height .45s cubic-bezier(.2,.9,.25,1), padding .28s ease;
+    padding: 0 18px;              /* left/right padding kept, top/bottom animated */
+    box-sizing: border-box;
+  }
+  .card.open .card-body {
+    padding: 12px 18px 18px 18px; /* expanded padding */
+  }
+
+  /* subjects */
+  .subjects {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+  }
+
+  .subject {
+    display:block;
+    width: var(--subject-w);
+    text-align:center;
+    padding:10px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    background: var(--accent);
+    font-weight:600;
+    box-shadow: 0 8px 18px rgba(11,48,91,0.12);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform .32s cubic-bezier(.2,.9,.25,1), opacity .26s ease, background .16s ease;
+  }
+
+  .card.open .subject {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .subject:hover { background:#16a34a; transform: translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,0.12); }
+  .subject:active { transform: scale(.99); }
+
+  /* When open, move the title to top-left and make it small */
+  .card.open .card-header {
+    padding: 10px 18px; /* reduce header height when open */
+    min-height: auto;
+    align-items: flex-start;
+    justify-content:flex-start;
+  }
+
+  .card .title {
+    /* default centered look uses the header's flex layout */
+    transform: translateY(0);
+  }
+
+  .card.open .title {
+    position: absolute;     /* take out of normal flow */
+    top: 10px;
+    left: 14px;
+    font-size:12px;         /* small top-corner title */
+    font-weight:700;
+    color: rgba(255,255,255,0.95);
+    transform: none;
+  }
+
+  /* move subtitle out of the way when open (fade/slide) */
+  .card.open .subtitle { opacity: 0; transform: translateY(-6px); }
+
+  /* responsive subject width */
+  @media (max-width:520px) { :root { --subject-w: 100%; } .subject { width:100%; } }
