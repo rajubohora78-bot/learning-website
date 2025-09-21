@@ -212,6 +212,8 @@ a:hover {
 
 
 
+
+
 /* next prev arrows */
 
 .arrows{
@@ -417,52 +419,10 @@ a:hover {
 }
 // Make entire card clickable (but let subject links behave normally).
   // When opening, the card's title moves to top-left (handled by CSS .card.open .title)
-  document.querySelectorAll('.card').forEach(card => {
-    const body = card.querySelector('.card-body');
-
-    // open/close functions using measured heights for smooth animation
-    function open() {
-      card.classList.add('open');
-      card.setAttribute('aria-expanded', 'true');
-      body.setAttribute('aria-hidden', 'false');
-      const height = body.scrollHeight;
-      body.style.maxHeight = height + 'px';
-      // tidy after transition so height can adjust if inner content changes
-      const tidy = () => { body.style.maxHeight = 'none'; body.removeEventListener('transitionend', tidy); };
-      body.addEventListener('transitionend', tidy);
-    }
-
-    function close() {
-      // to animate from the current height (possibly 'none'), set measured height first
-      body.style.maxHeight = body.scrollHeight + 'px';
-      // force reflow
-      body.getBoundingClientRect();
-      body.style.maxHeight = '0';
-      card.classList.remove('open');
-      card.setAttribute('aria-expanded', 'false');
-      body.setAttribute('aria-hidden', 'true');
-    }
-
-    function toggle() { if (card.classList.contains('open')) close(); else open(); }
-
-    // Click on card toggles — but if the click target is a subject link, let the link handle navigation
-    card.addEventListener('click', (e)=>{
-      if (e.target.closest('.subject')) return; // clicking a subject should not toggle, it should navigate
-      // if user clicked a focused element inside (like a link inside), do nothing
-      toggle();
-    });
-
-    // Keyboard accessibility: open/close on Enter or Space (but not when focusing a link)
-    card.addEventListener('keydown', (e)=>{
-      const tag = document.activeElement && document.activeElement.tagName.toLowerCase();
-      if(tag === 'a' || tag === 'button' || tag === 'input' || tag === 'textarea') return;
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-  });
-
-
-
   
+
+
+
 
 
   :root {
