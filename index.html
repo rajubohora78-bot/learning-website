@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,10 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
-  
-    
+
+
   <style>
 
 
@@ -22,7 +23,7 @@
 </head>
 <body class="bg-blue-50">
 
- 
+
   <!-- Main form container -->
   <header class="sticky top-0 z-10 bg-[#2C5282] flex items-center justify-between px-2 py-1 h-16 shadow-[0_0_10px_rgba(255,255,255,0.3)] rounded-md">
   <div class="flex items-center space-x-2">
@@ -53,90 +54,24 @@
 </div>
 
 
-   
-     
-       
-        <div class=" p-0 rounded-xl overflow-hidden sm:w-full sm:h-screen ">
-       <div class="carousel sm:w-full sm:h-full">
-    <
-    
-  <!-- IMAGE SLIDER (Carousel) START -->
-        
 
-      <div class="list">
-
-        <div class="item sm:w-full sm:h-full object-contain" style=" background-image: url(image/crow.png);">
-          <div class="content">
-            <div class="title">Read </div>
-            <div class="name">Think </div>
-            <div class="des">This peaceful study moment reminds us how a simple habit—like reading every day—can build focus, knowledge, and confidence.</div>
-            <div class="btn">
-              <!--
-              <button>See More</button>
-              <button>Subscribe</button>      -->
-            </div>
-          </div>
+        <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="background-image:url(./img/img1.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img2.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img3.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img4.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img5.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img6.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(./img/img7.jpg)"></div>
         </div>
-
-        <div class="item  item sm:w-full sm:h-full object-contain " style="background-image: url(image/notes2.png);">
-          <div class="content">
-            <div class="title">Organized Shelf,</div>
-            <div class="name">Clear Mind</div>
-            <div class="des">When everything is in its place, learning becomes easier and faster. A clean shelf, a ready notebook, and a quiet space help us focus better.</div>
-            <div class="btn">
-              <!--
-              <button>See More</button>
-              <button>Subscribe</button>      -->
-            </div>
-          </div>
-        </div>
-
-        <div class="item" style="background-image: url(image/memory.png);">
-          <div class="content">
-            <div class="title">Focus</div>
-            <div class="name">Concentration</div>
-            <div class="des"> It boosts focus, strengthens memory, and trains your mind to absorb and recall information—just like a workout for your brain. Keep reading, keep growing.</div>
-            <div class="btn">
-              <!--<button>See More</button>
-              <button>Subscribe</button>    -->
-            </div>
-          </div>
-        </div>
-
-        <div class="item" style="background-image: url(image/butterfly1.png);">
-          <div class="content">
-            <div class="title">Butterfly</div>
-            <div class="name"></div>
-            <div class="des">Make goals and imagine to fly in a beautiful sky like butterfly.</div>
-            <div class="btn">
-              <!--<button>See More</button>
-              <button>Subscribe</button>    -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Add remaining items here like in your code (OWL, EAGLE, KINGFISHER, etc.) -->
-
-      </div>
-
-      <!-- Next/Prev Buttons -->
-      <div class="arrows">
-        <button class="prev"><</button>
-        <button class="next">></button>
-      </div>
-
-      <!-- Time Progress Bar -->
-      <div class="timeRunning"></div>
-
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-  <!-- IMAGE SLIDER (Carousel) END -->
-
-  <!-- Attach carousel script -->
-  <script src="app.js"></script>
-</div>
-
-  </div>
-</div
 
 <div class="bg-[#2C5282] h-[1px] mt-[50px] w-full"></div>
 
@@ -511,5 +446,7 @@
       </div>
     </form>
   </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
