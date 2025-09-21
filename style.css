@@ -66,7 +66,7 @@ a:hover {
     border-radius: 30px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     background-position: 50% 50%;
-    background-size: no repeat;
+    background-size: cover;
     z-index: 80;
     transition: 1s;
      
@@ -417,13 +417,6 @@ a:hover {
 .mn-404-number {
   animation: float404 3s ease-in-out infinite;
 }
-// Make entire card clickable (but let subject links behave normally).
-  // When opening, the card's title moves to top-left (handled by CSS .card.open .title)
-  
-
-
-
-
 
   :root {
     --card-h: 220px;
@@ -567,15 +560,19 @@ a:hover {
   /* responsive subject width */
   @media (max-width:520px) { :root { --subject-w: 100%; } .subject { width:100%; } }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .carousel {
         width: 100%;
         height: auto;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
     }
 
     .carousel .list .item {
         width: 100%;
-        height: auto;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .carousel .list .item:nth-child(n+3) {
