@@ -387,7 +387,6 @@ a:hover {
 
 
 
-
     }
     #mobile-menu-button.open span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
@@ -398,6 +397,8 @@ a:hover {
 #mobile-menu-button.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
+
+
 
 
 
@@ -605,3 +606,19 @@ a:hover {
 
   /* responsive subject width */
   @media (max-width:520px) { :root { --subject-w: 100%; } .subject { width:100%; } }
+
+@media (max-width: 600px) {
+    .carousel {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel .list .item {
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel .list .item:nth-child(n+3) {
+        left: 100%;
+    }
+}
