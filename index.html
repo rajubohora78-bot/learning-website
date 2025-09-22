@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +11,9 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css">
-
-
+  
+    
   <style>
 
 
@@ -23,7 +22,7 @@
 </head>
 <body class="bg-blue-50">
 
-
+ 
   <!-- Main form container -->
   <header class="sticky top-0 z-10 bg-[#2C5282] flex items-center justify-between px-2 py-1 h-16 shadow-[0_0_10px_rgba(255,255,255,0.3)] rounded-md">
   <div class="flex items-center space-x-2">
@@ -54,39 +53,85 @@
 </div>
 
 
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
 
-        <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide" style="background-image:url(./image/butterfly1.png)"></div>
-            <div class="swiper-slide" style="background-image:url(./image/memory.png)"></div>
-            <div class="swiper-slide" style="background-image:url(./image/notes2.png)"></div>
-            <div class="swiper-slide" style="background-image:url(./image/crow.png)"></div>
+    <!-- This is the main container for the entire slider. -->
+    <div class="p-0 rounded-xl overflow-hidden sm:w-full sm:h-screen">
+        <div class="carousel w-full h-full">
+            
+            <!-- The sliding part, containing all the images. -->
+            <div class="list">
+                <!-- Slide 1: Replaced local image with a placeholder -->
+                <div class="item" style="background-image: url(image/crow.png);">
+                </div>
+                <!-- Slide 2 -->
+                <div class="item" style="background-image: url(image/notes2.png);">
+                </div>
+                <!-- Slide 3 -->
+                <div class="item" style="background-image: url(image/memory.png);">
+                </div>
+                <!-- Slide 4 -->
+                <div class="item" style="background-image: url(image/butterfly2.jpg);">
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="arrows">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+
+            <!-- Navigation Dots -->
+            <div class="dots"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Navigation -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
     </div>
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="bg-[#2C5282] h-[1px] mt-[50px] w-full"></div>
 
 <div class="p-0 rounded-xl w-full sm:h-[1px] flex flex-col relative" style="background: linear-gradient(to bottom, #93b0ea 0%, #627bad 95%, #9ca3af 95%, #95b9f6 100%)"></div>      
       <!-- Container for the middle section with two sub-containers -->
    
-<div class="bg-[#2C5282] h-[1px] mt-[50px] w-full"></div>
+
 
   <!-- Fixed Header -->
-  <div class="flex justify-center items-center h-[60px]">
-    <h2 class="text-xl font-semibold">Service</h2>
+  <div class="flex justify-center items-center h-[30px]">
+    <h2 class="text-xl font-semibold">Explore Our Resources</h2>
   </div>
 
   <!-- Grid fills remaining space -->
   
  <div class="flex justify-center items-center ">
   <!-- Grid Container -->
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-20 p-10">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-5 sm:gap-4 md:gap-8">
+    
     
     <!-- Book Card -->
      <!-- Duplicate Book Cards for Grid Demo -->
@@ -102,16 +147,36 @@
     </a>
 
     <!-- Duplicate Book Cards for Grid Demo -->
-    <a href="curriculum.html" class="group flex flex-col items-center justify-center 
-              w-250px] h-[310px] p-4  bg-[#357AC2] shadow-lg rounded-lg text-center block 
-              transform transition duration-300 hover:scale-105 hover:shadow-xl">
-      <div class="w-21 h-21 mb-1">
-        <img src="image/book1.png" alt="Book 2" class="p-2 w-full h-full object-cover rounded">
-      </div>
-      <h3 class="text-white font-semibold text-sm mb-1 p-3">Curriculum</h3>
-      <p class="text-white text-xs mb-1 p-2">All Subjects curriculum</p>
-      <div class="bg-green-500 text-white text-[10px] px-2 py-1 rounded-full p-6">✓ NEB Approved</div>
-    </a>
+    <!-- Curriculum Card -->
+<a href="curriculum.html" 
+   class="group flex flex-col items-center justify-center 
+          w-full max-w-[212px] h-[264px]   <!-- ~85% for mobile -->
+          sm:max-w-[230px] sm:h-[285px]    <!-- slightly bigger on small screens -->
+          md:max-w-[250px] md:h-[310px]    <!-- full size on PC -->
+          p-3 sm:p-4 bg-[#357AC2] shadow-lg rounded-lg text-center block 
+          transform transition duration-300 hover:scale-105 hover:shadow-xl">
+
+  <!-- Image -->
+  <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-2 -mt-5">
+    <img src="image/book1.png" alt="Book 2" 
+         class="p-1 sm:p-2 w-full h-full object-cover rounded">
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-white font-semibold text-xs sm:text-sm md:text-base mb-3">
+  Curriculum
+</h3>
+
+<p class="text-white text-[8px] sm:text-[10px] md:text-sm mb-6">
+  All Subjects curriculum
+</p>
+
+<div class="bg-green-500 text-white text-[7px] sm:text-[10px] md:text-xs 
+            px-2 py-1 rounded-full">
+  ✓ NEB Approved
+</div>
+</a>
+
 
      <!-- Duplicate Book Cards for Grid Demo -->
     <a href="#" class="group flex flex-col items-center justify-center 
@@ -166,6 +231,8 @@
 
       </div>    
 </div>
+<div class="bg-[#2C5282] h-[1px] mt-[20px] w-full"></div>
+<div class="h-[30px]"></div>
 
       <!-- Single, full-width containers -->
       <div class="live-updates">
@@ -443,7 +510,5 @@
       </div>
     </form>
   </div>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
