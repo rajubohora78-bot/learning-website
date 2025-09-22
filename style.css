@@ -38,9 +38,18 @@ a:hover {
     border-radius: 2px;
 }
 
+
+
+
 .shadow-custom:hover {
   box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* subtle, no green */
 }
+
+
+
+
+
+
 
 .live-updates {
        width: 85%;
@@ -105,6 +114,7 @@ a:hover {
 
 
 
+
     }
     #mobile-menu-button.open span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
@@ -115,6 +125,10 @@ a:hover {
 #mobile-menu-button.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
+
+
+
+
 
 @keyframes float404 {
   0%   { transform: translate(0px, 0px); }
@@ -127,6 +141,55 @@ a:hover {
 .mn-404-number {
   animation: float404 3s ease-in-out infinite;
 }
+// Make entire card clickable (but let subject links behave normally).
+  // When opening, the card's title moves to top-left (handled by CSS .card.open .title)
+  document.querySelectorAll('.card').forEach(card => {
+    const body = card.querySelector('.card-body');
+
+    // open/close functions using measured heights for smooth animation
+    function open() {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+      body.setAttribute('aria-hidden', 'false');
+      const height = body.scrollHeight;
+      body.style.maxHeight = height + 'px';
+      // tidy after transition so height can adjust if inner content changes
+      const tidy = () => { body.style.maxHeight = 'none'; body.removeEventListener('transitionend', tidy); };
+      body.addEventListener('transitionend', tidy);
+    }
+
+    function close() {
+      // to animate from the current height (possibly 'none'), set measured height first
+      body.style.maxHeight = body.scrollHeight + 'px';
+      // force reflow
+      body.getBoundingClientRect();
+      body.style.maxHeight = '0';
+      card.classList.remove('open');
+      card.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+    }
+
+    function toggle() { if (card.classList.contains('open')) close(); else open(); }
+
+    // Click on card toggles — but if the click target is a subject link, let the link handle navigation
+    card.addEventListener('click', (e)=>{
+      if (e.target.closest('.subject')) return; // clicking a subject should not toggle, it should navigate
+      // if user clicked a focused element inside (like a link inside), do nothing
+      toggle();
+    });
+
+    // Keyboard accessibility: open/close on Enter or Space (but not when focusing a link)
+    card.addEventListener('keydown', (e)=>{
+      const tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+      if(tag === 'a' || tag === 'button' || tag === 'input' || tag === 'textarea') return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+
+
+  
+
 
   :root {
     --card-h: 220px;
@@ -270,48 +333,83 @@ a:hover {
   /* responsive subject width */
   @media (max-width:520px) { :root { --subject-w: 100%; } .subject { width:100%; } }
 
-@media (max-width: 768px) {
-    .carousel {
-        width: 100%;
-        height: 56.25vw;
-    }
 
-    .carousel .list .item {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
 
-    .carousel .list .item:nth-child(n+3) {
-        left: 100%;
-    }
-}
 
-.swiper-container {
-    width: 100%;
-    height: 100vh;
-}
 
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
 
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-}
+ /* slider starts here */
+  body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .list {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+        }
+        .item {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .arrows button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .arrows .prev { left: 1.5rem; }
+        .arrows .next { right: 1.5rem; }
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+        .dots button {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dots button.active {
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+/* slider ends here */
