@@ -37,16 +37,9 @@ a:hover {
     border-radius: 2px;
 }
 
-#mobile-menu {
-  background-color: #2C5282;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
 #mobile-menu.show {
   max-height: 500px; /* adjust for number of links */
-  opacity: 1;
+  opacity: 0;
 }
 
 
